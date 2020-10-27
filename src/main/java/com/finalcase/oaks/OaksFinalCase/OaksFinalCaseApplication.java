@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class OaksFinalCaseApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(OaksFinalCaseApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(OaksFinalCaseApplication.class, args);
+    }
 
 }

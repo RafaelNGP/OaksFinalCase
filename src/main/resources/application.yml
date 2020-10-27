@@ -1,32 +1,16 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:<DATABASE-NAME>
+    url: jdbc:h2:mem:/test
     driverClassName: org.h2.Driver
-    username: <USERNAME FOR DB>
-    password: <PASSWORD>
+    username: sa
+    password:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
   h2:
     console:
       enabled: true
-      path: <PATH_FOR_ACCESS_CONSOLE>
+      path: /h2
       settings:
         trace: false
         web-allow-others: false
-  Recolher
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#  Recolher

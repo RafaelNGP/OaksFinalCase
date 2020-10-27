@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Actor implements Profile {
+public class Actor extends Profile {
     @Id
     @GeneratedValue
     @Column(name = "Id")

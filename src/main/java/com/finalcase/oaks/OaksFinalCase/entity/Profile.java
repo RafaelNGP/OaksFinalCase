@@ -1,4 +1,4 @@
 package com.finalcase.oaks.OaksFinalCase.entity;
 
-public interface Profile {
+public abstract class Profile {
 }

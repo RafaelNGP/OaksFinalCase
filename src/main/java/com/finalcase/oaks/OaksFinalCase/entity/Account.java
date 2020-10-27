@@ -17,7 +17,4 @@ public class Account {
         return availableLimit;
     }
 
-    public void setAvailableLimit(int availableLimit) {
-        this.availableLimit = availableLimit;
-    }
 }

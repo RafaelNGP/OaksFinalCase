@@ -1,4 +1,4 @@
-package entity;
+package com.finalcase.oaks.OaksFinalCase.entity;
 
 import java.util.Date;
 

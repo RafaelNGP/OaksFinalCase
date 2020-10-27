@@ -9,5 +9,4 @@ public class OaksFinalCaseApplication {
     public static void main(String[] args) {
         SpringApplication.run(OaksFinalCaseApplication.class, args);
     }
-
 }

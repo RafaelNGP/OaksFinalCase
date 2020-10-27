@@ -1,9 +1,7 @@
 package com.finalcase.oaks.OaksFinalCase.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,8 +12,9 @@ public class Producer extends Profile {
     @Column(name = "Id")
     private Integer Id;
 
+    @ElementCollection
     @Column(name = "reservedActors")
-    private List<Actor> reservedActors;
+    private List<Actor> reservedActors = new ArrayList<>();
 
     public Integer getId() {
         return Id;

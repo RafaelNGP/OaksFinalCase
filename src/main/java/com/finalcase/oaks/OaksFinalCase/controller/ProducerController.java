@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.*;
 public class ProducerController {
 
     @Autowired
-    ProducerService service;
+    private ProducerService service;
 }

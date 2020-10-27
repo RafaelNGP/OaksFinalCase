@@ -22,6 +22,12 @@ public class Transaction {
     @Column(name = "time")
     private Date time;
 
+    public Transaction(String merchant, int amount, Date time) {
+        this.merchant = merchant;
+        this.amount = amount;
+        this.time = time;
+    }
+
     public String getMerchant() {
         return merchant;
     }

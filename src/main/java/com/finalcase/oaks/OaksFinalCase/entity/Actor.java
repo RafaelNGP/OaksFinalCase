@@ -1,10 +1,9 @@
 package com.finalcase.oaks.OaksFinalCase.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Actor extends Profile {
@@ -22,11 +21,13 @@ public class Actor extends Profile {
     @Column(name = "genre")
     private String genre;
 
-    @Column(name = "availableDays")
-    private Date[] availableDays;
+    @ElementCollection
+    @Column(name = "AvailableDays")
+    private List<Date> availableDays = new ArrayList<>();
 
+    @ElementCollection
     @Column(name = "contractedDays")
-    private Date[] contractedDays;
+    private List<Date> contractedDays = new ArrayList<>();
 
     public Actor(String name, String doc) {
         super(name, doc);
@@ -64,19 +65,19 @@ public class Actor extends Profile {
         this.genre = genre;
     }
 
-    public Date[] getAvailableDays() {
+    public List<Date> getAvailableDays() {
         return availableDays;
     }
 
-    public void setAvailableDays(Date[] availableDays) {
+    public void setAvailableDays(List<Date> availableDays) {
         this.availableDays = availableDays;
     }
 
-    public Date[] getContractedDays() {
+    public List<Date> getContractedDays() {
         return contractedDays;
     }
 
-    public void setContractedDays(Date[] contractedDays) {
+    public void setContractedDays(List<Date> contractedDays) {
         this.contractedDays = contractedDays;
     }
 }

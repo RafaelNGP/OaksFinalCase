@@ -25,7 +25,7 @@ public class ProducerService {
 
     //TODO: resolver
 //    public Producer getByDoc(String doc) {
-//        return repository.findByDoc(doc);
+//        return repository.findBydoc(doc);
 //    }
 
     public List<Actor> addReservedActorToProducer (Actor actor, Producer producer) {

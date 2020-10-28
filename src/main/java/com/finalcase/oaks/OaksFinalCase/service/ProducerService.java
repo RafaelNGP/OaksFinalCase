@@ -18,15 +18,14 @@ public class ProducerService {
         return repository.findById(id).orElseThrow();
     }
 
-    public Producer saveNewProducer(String name, String doc) {
-        Producer producer = new Producer(name, doc);
+    public Producer saveNewProducer(String name, String doc, String email, String password) {
+        Producer producer = new Producer(name, doc, email, password);
         return repository.save(producer);
     }
 
-    //TODO: resolver
-//    public Producer getByDoc(String doc) {
-//        return repository.findBydoc(doc);
-//    }
+    public Producer getByDoc(String doc) {
+        return repository.findBydoc(doc);
+    }
 
     public List<Actor> addReservedActorToProducer (Actor actor, Producer producer) {
         return producer.addReservedActor(actor);

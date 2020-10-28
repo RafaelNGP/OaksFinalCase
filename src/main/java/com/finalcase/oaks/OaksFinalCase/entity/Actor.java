@@ -6,7 +6,10 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Actor extends Profile {
+public class Actor extends Profile implements Login{
+
+    //atributos
+
     @Id
     @GeneratedValue
     @Column(name = "Id")
@@ -29,9 +32,16 @@ public class Actor extends Profile {
     @Column(name = "contractedDays")
     private List<Date> contractedDays = new ArrayList<>();
 
-    public Actor(String name, String doc) {
-        super(name, doc);
+    //construtor
+
+    public Actor(String name, String doc, String email, String password, Double price, int relevance, String genre) {
+        super(name, doc, email, password);
+        this.price = price;
+        this.relevance = relevance;
+        this.genre = genre;
     }
+
+    //getters e setters
 
     public Integer getId() {
         return Id;
@@ -81,16 +91,10 @@ public class Actor extends Profile {
         this.contractedDays = contractedDays;
     }
 
-//
-//    public List<Date> addAvailableDays(Date date){
-//        availableDays.add(date);
-//        return availableDays;
-//    }
-//
-//    public List<Date> addContractedDays(Date date){
-//        contractedDays.add(date);
-//        return contractedDays;
-//    }
+    //metodos
 
-
+    @Override
+    public boolean checkLogin(String email, String senha) {
+        return false;
+    }
 }

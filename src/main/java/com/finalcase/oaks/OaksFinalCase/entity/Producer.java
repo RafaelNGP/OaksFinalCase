@@ -7,6 +7,8 @@ import java.util.List;
 @Entity
 public class Producer extends Profile {
 
+    //atributos
+
     @Id
     @GeneratedValue
     @Column(name = "Id")
@@ -16,9 +18,13 @@ public class Producer extends Profile {
     @Column(name = "reservedActors")
     private List<Actor> reservedActors = new ArrayList<>();
 
-    public Producer(String name, String doc) {
-        super(name, doc);
+    //construtor
+
+    public Producer(String name, String doc, String email, String password) {
+        super(name, doc, email, password);
     }
+
+    //getters e setters
 
     public Integer getId() {
         return Id;
@@ -35,6 +41,8 @@ public class Producer extends Profile {
     public void setReservedActors(List<Actor> reservedActors) {
         this.reservedActors = reservedActors;
     }
+
+    //metodos
 
     public List<Actor> addReservedActor(Actor actor) {
         reservedActors.add(actor);

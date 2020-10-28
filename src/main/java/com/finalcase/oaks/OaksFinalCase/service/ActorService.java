@@ -16,8 +16,8 @@ public class ActorService {
         return repository.findById(id).orElseThrow();
     }
 
-    public Actor saveNewActor(String name, String doc) {
-        Actor actor = new Actor(name, doc);
+    public Actor saveNewActor(String name, String doc, String email, String password, Double price, int relevance, String genre) {
+        Actor actor = new Actor(name, doc, email, password, price, relevance, genre);
         return repository.save(actor);
     }
 

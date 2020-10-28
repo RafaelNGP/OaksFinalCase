@@ -1,12 +1,10 @@
 package com.finalcase.oaks.OaksFinalCase.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@MappedSuperclass
 public class Actor extends Profile {
     @Id
     @GeneratedValue

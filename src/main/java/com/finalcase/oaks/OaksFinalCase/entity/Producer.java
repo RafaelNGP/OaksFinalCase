@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@MappedSuperclass
 public class Producer extends Profile {
 
     @Id

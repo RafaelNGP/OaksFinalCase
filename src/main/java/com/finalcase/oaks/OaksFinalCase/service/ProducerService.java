@@ -23,14 +23,12 @@ public class ProducerService {
         return repository.save(producer);
     }
 
-    public Producer getByDoc(String doc) {
-        return repository.findByDoc(doc);
-    }
+    //TODO: resolver
+//    public Producer getByDoc(String doc) {
+//        return repository.findByDoc(doc);
+//    }
 
     public List<Actor> addReservedActorToProducer (Actor actor, Producer producer) {
         return producer.addReservedActor(actor);
     }
-
 }
-
-

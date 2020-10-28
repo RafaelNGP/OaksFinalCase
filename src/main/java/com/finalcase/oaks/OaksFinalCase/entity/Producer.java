@@ -16,6 +16,10 @@ public class Producer extends Profile {
     @Column(name = "reservedActors")
     private List<Actor> reservedActors = new ArrayList<>();
 
+    public Producer(String name, String doc) {
+        super(name, doc);
+    }
+
     public Integer getId() {
         return Id;
     }

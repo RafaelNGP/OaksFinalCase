@@ -14,4 +14,14 @@ public class ProducerService {
     public Producer getById(Integer id) {
         return repository.findById(id).orElseThrow();
     }
+
+    public Producer saveNewProducer(String name, String doc) {
+        Producer producer = new Producer(name, doc);
+        return repository.save(producer);
+    }
+
+
+
 }
+
+

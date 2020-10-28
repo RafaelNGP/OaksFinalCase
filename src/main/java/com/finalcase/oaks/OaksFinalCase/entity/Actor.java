@@ -28,6 +28,10 @@ public class Actor extends Profile {
     @Column(name = "contractedDays")
     private Date[] contractedDays;
 
+    public Actor(String name, String doc) {
+        super(name, doc);
+    }
+
     public Integer getId() {
         return Id;
     }

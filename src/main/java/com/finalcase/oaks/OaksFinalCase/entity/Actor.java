@@ -91,11 +91,13 @@ public class Actor extends Profile implements Login{
         this.contractedDays = contractedDays;
     }
 
+
+
     //metodos
 
     @Override
-    public boolean checkLogin(String email, String senha) {
-        return false;
+    public boolean checkLogin(String email, String password) {
+        return this.getEmail() == email && this.getPassword() == password;
     }
 
     public List<Date> addAvailableDay (Date date) {

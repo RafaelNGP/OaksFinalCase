@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Producer extends Profile {
+public class Producer extends Profile implements Login {
 
     //atributos
 
@@ -43,6 +43,11 @@ public class Producer extends Profile {
     }
 
     //metodos
+
+    @Override
+    public boolean checkLogin(String email, String password) {
+        return this.getEmail() == email && this.getPassword() == password;
+    }
 
     public List<Actor> addReservedActor(Actor actor) {
         reservedActors.add(actor);

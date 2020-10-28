@@ -18,4 +18,28 @@ public abstract class Profile {
         this.email = email;
         this.password = password;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDoc() {
+        return doc;
+    }
+
+    public void setDoc(String doc) {
+        this.doc = doc;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

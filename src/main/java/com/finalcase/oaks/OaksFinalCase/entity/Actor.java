@@ -80,4 +80,17 @@ public class Actor extends Profile {
     public void setContractedDays(List<Date> contractedDays) {
         this.contractedDays = contractedDays;
     }
+
+//
+//    public List<Date> addAvailableDays(Date date){
+//        availableDays.add(date);
+//        return availableDays;
+//    }
+//
+//    public List<Date> addContractedDays(Date date){
+//        contractedDays.add(date);
+//        return contractedDays;
+//    }
+
+
 }

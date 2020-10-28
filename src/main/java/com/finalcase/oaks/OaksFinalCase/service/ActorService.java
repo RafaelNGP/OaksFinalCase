@@ -12,7 +12,7 @@ public class ActorService {
     private ActorRepository actorRepository;
 
     public Actor getActor(){
-        return actorRepository.getOne();
+        return actorRepository.getOne(1);
     }
 
     public void saveActor(Actor actor){

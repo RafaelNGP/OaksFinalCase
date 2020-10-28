@@ -35,4 +35,11 @@ public class Producer extends Profile {
     public void setReservedActors(List<Actor> reservedActors) {
         this.reservedActors = reservedActors;
     }
+
+    public List<Actor> addReservedActor(Actor actor) {
+        reservedActors.add(actor);
+        return reservedActors;
+    }
 }
+
+

@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@MappedSuperclass
 public class Actor extends Profile {
     @Id
     @GeneratedValue

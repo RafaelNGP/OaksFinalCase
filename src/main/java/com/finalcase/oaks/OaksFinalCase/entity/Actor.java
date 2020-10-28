@@ -97,4 +97,19 @@ public class Actor extends Profile implements Login{
     public boolean checkLogin(String email, String senha) {
         return false;
     }
+
+    public List<Date> addAvailableDay (Date date) {
+        availableDays.add(date);
+        return availableDays;
+    }
+
+    public List<Date> addContractedDays (Date date) {
+        contractedDays.add(date);
+        return contractedDays;
+    }
+
+    public List<Date> removeAvailableDay (Date date) {
+        availableDays.remove(date);
+        return availableDays;
+    }
 }

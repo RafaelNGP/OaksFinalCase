@@ -14,7 +14,7 @@ public class ActorService {
     private ActorRepository actorRepository;
     ActorRepository repository;
 
-    public Producer getById(Integer id) {
+    public Actor getById(Integer id) {
         return repository.findById(id).orElseThrow();
     }
 

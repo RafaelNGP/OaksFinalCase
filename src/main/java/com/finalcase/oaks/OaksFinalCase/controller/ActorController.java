@@ -21,9 +21,14 @@ public class ActorController {
         return ResponseEntity.ok(actor);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Actor> getAllActors() {
         return actorService.listAllActors();
+    }
+
+    @GetMapping("/byGenre")
+    public List<Actor> getAllByGenre(@RequestParam String genre){
+        return actorService.listAllByGenre(genre);
     }
 
     @GetMapping("/{id}")

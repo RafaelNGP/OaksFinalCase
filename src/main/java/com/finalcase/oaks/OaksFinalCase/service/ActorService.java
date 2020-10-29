@@ -19,6 +19,10 @@ public class ActorService {
     public List<Actor> listAllActors(){
         return actorRepository.findAll();
     }
+    public List<Actor> listAllByGenre(String genre){
+        return actorRepository.findAllByGenre(genre);
+    }
+
     public Actor getById(Integer id) {
         return actorRepository.findById(id).orElseThrow();
     }

@@ -31,6 +31,11 @@ public class ActorController {
         return actorService.listAllByGenre(genre);
     }
 
+    @GetMapping("/byPrice")
+    public List<Actor> getAllByPrice(@RequestParam double price){
+        return actorService.listAllByPrice(price);
+    }
+
     @GetMapping("/{id}")
     public Actor GetActorByID(@PathVariable (value="id")Integer id){
         return actorService.getById(id);

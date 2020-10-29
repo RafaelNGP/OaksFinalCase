@@ -23,6 +23,10 @@ public class ActorService {
         return actorRepository.findAllByGenre(genre);
     }
 
+    public List<Actor> listAllByPrice(double price){
+        return actorRepository.findByPriceLessThan(price);
+    }
+
     public Actor getById(Integer id) {
         return actorRepository.findById(id).orElseThrow();
     }

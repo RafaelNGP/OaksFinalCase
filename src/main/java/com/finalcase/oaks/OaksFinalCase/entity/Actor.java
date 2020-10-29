@@ -1,12 +1,13 @@
 package com.finalcase.oaks.OaksFinalCase.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Entity
-public class Actor extends Profile implements Login{
+@Entity(name = "Actor")
+public class Actor extends Profile implements Login {
 
     //atributos
 
@@ -33,12 +34,16 @@ public class Actor extends Profile implements Login{
     private List<Date> contractedDays = new ArrayList<>();
 
     //construtor
-
     public Actor(String name, String doc, String email, String password, Double price, int relevance, String genre) {
         super(name, doc, email, password);
         this.price = price;
         this.relevance = relevance;
         this.genre = genre;
+    }
+
+
+    public Actor(String name, String doc, String email, String password) {
+        super(name, doc, email, password);
     }
 
     //getters e setters
@@ -90,8 +95,6 @@ public class Actor extends Profile implements Login{
     public void setContractedDays(List<Date> contractedDays) {
         this.contractedDays = contractedDays;
     }
-
-
 
     //metodos
 

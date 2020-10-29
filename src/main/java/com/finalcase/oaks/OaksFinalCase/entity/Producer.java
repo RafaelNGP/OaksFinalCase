@@ -1,10 +1,11 @@
 package com.finalcase.oaks.OaksFinalCase.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "Producer")
 public class Producer extends Profile implements Login {
 
     //atributos
@@ -54,5 +55,3 @@ public class Producer extends Profile implements Login {
         return reservedActors;
     }
 }
-
-

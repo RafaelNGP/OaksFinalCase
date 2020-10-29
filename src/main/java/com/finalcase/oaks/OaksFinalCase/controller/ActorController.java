@@ -20,6 +20,7 @@ public class ActorController {
         actorService.saveNewActor(actor);
         return ResponseEntity.ok(actor);
     }
+
     @GetMapping
     public List<Actor> getAllActors() {
         return actorService.listAllActors();
@@ -29,6 +30,7 @@ public class ActorController {
     public Actor GetActorByID(@PathVariable (value="id")Integer id){
         return actorService.getById(id);
     }
+}
 
 //    Exemplo de JSON para POST
 /*
@@ -42,4 +44,3 @@ public class ActorController {
     "genre": "Terror"
 }
 */
-}

@@ -1,15 +1,13 @@
 package com.finalcase.oaks.OaksFinalCase.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "Producer")
-public class Producer extends Profile implements Login {
+public class Producer implements Login {
 
     //atributos
-
     @Id
     @GeneratedValue
     @Column(name = "Id")
@@ -19,37 +17,63 @@ public class Producer extends Profile implements Login {
     @Column(name = "reservedActors")
     private List<Actor> reservedActors = new ArrayList<>();
 
-    //construtor
+    @Column(name = "Name")
+    private String name;
 
-    public Producer(String name, String doc, String email, String password) {
-        super(name, doc, email, password);
-    }
+    @Column(name = "Doc")
+    private String doc;
 
-    //getters e setters
+    @Column(name = "Email")
+    private String email;
 
+    @Column(name = "Password")
+    private String password;
+
+    //Getters
     public Integer getId() {
         return Id;
     }
-
-    public void setId(Integer id) {
-        Id = id;
+    public String getName() {
+        return name;
     }
-
+    public String getDoc() {
+        return doc;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public String getPassword() {
+        return password;
+    }
     public List<Actor> getReservedActors() {
         return reservedActors;
     }
 
+    //Setters
+    public void setId(Integer id) {
+        Id = id;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setDoc(String doc) {
+        this.doc = doc;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
     public void setReservedActors(List<Actor> reservedActors) {
         this.reservedActors = reservedActors;
     }
 
     //metodos
-
     @Override
     public boolean checkLogin(String email, String password) {
         return this.getEmail() == email && this.getPassword() == password;
     }
-
     public List<Actor> addReservedActor(Actor actor) {
         reservedActors.add(actor);
         return reservedActors;

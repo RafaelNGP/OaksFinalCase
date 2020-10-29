@@ -16,11 +16,9 @@ public class ActorService {
     public void saveNewActor(Actor actor) {
         actorRepository.save(actor);
     }
-
     public List<Actor> listAllActors(){
         return actorRepository.findAll();
     }
-
     public Actor getById(Integer id) {
         return actorRepository.findById(id).orElseThrow();
     }

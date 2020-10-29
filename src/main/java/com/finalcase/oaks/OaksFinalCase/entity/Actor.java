@@ -7,25 +7,13 @@ import java.util.Date;
 import java.util.List;
 
 @Entity(name = "Actor")
-public class Actor implements Login {
+public class Actor extends Profile implements Login {
 
     //atributos
     @Id
     @GeneratedValue
     @Column(name = "Id")
     private Integer Id;
-
-    @Column(name = "Name")
-    private String name;
-
-    @Column(name = "Doc")
-    private String doc;
-
-    @Column(name = "Email")
-    private String email;
-
-    @Column(name = "Password")
-    private String password;
 
     @Column(name = "price")
     private Double price;
@@ -44,19 +32,19 @@ public class Actor implements Login {
     @Column(name = "contractedDays")
     private List<Date> contractedDays = new ArrayList<>();
 
+    //construtor
+
+    public Actor() {
+    };
+    public Actor(String name, String doc, String email, String password, Double price, int relevance, String genre) {
+        super(name, doc, email, password);
+        this.price = price;
+        this.relevance = relevance;
+        this.genre = genre;
+    }
+
     //getters
-    public String getName() {
-        return name;
-    }
-    public String getDoc() {
-        return doc;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public String getPassword() {
-        return password;
-    }
+
     public Double getPrice() {
         return price;
     }
@@ -77,18 +65,7 @@ public class Actor implements Login {
     }
 
     //setters
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setDoc(String doc) {
-        this.doc = doc;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
+
     public void setPrice(Double price) {
         this.price = price;
     }

@@ -2,26 +2,25 @@ package com.finalcase.oaks.OaksFinalCase.entity;
 
 import javax.persistence.*;
 
+@MappedSuperclass
 public abstract class Profile {
 
-//    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
+    // Atributos
 
-/*
-    @Column(name = "id", updatable = false, nullable = false)
-    protected Integer id;
-
-    @Column(name = "Name")
     private String name;
 
-    @Column(name = "Doc")
     private String doc;
 
-    @Column(name = "Email")
     private String email;
 
-    @Column(name = "Password")
     private String password;
+
+    // Construtor
+
+    public Profile() {
+    };
 
     public Profile(String name, String doc, String email, String password) {
         this.name = name;
@@ -30,16 +29,14 @@ public abstract class Profile {
         this.password = password;
     }
 
+    // Getters
+
     public String getName() {
         return name;
     }
 
     public String getDoc() {
         return doc;
-    }
-
-    public void setDoc(String doc) {
-        this.doc = doc;
     }
 
     public String getEmail() {
@@ -50,12 +47,14 @@ public abstract class Profile {
         return password;
     }
 
+    // Setters
+
+    public void setDoc(String doc) {
+        this.doc = doc;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public Integer getId() {
-        return id;
-    }
-*/
 }

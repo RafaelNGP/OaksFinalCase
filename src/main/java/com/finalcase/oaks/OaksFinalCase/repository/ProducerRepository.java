@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProducerRepository extends JpaRepository<Producer, Integer> {
 
-    Producer findBydoc(String doc);
+    Producer findByDoc(String doc);
 }

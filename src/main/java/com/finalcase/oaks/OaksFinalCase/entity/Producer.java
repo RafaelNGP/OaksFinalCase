@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "Producer")
-public class Producer implements Login {
+public class Producer extends Profile implements Login {
 
     //atributos
     @Id
@@ -17,34 +17,20 @@ public class Producer implements Login {
     @Column(name = "reservedActors")
     private List<Actor> reservedActors = new ArrayList<>();
 
-    @Column(name = "Name")
-    private String name;
+    //construtor
 
-    @Column(name = "Doc")
-    private String doc;
+    public Producer() {
+    }
 
-    @Column(name = "Email")
-    private String email;
-
-    @Column(name = "Password")
-    private String password;
+    public Producer(String name, String doc, String email, String password) {
+        super(name, doc, email, password);
+    }
 
     //Getters
     public Integer getId() {
         return Id;
     }
-    public String getName() {
-        return name;
-    }
-    public String getDoc() {
-        return doc;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public String getPassword() {
-        return password;
-    }
+
     public List<Actor> getReservedActors() {
         return reservedActors;
     }
@@ -53,18 +39,7 @@ public class Producer implements Login {
     public void setId(Integer id) {
         Id = id;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setDoc(String doc) {
-        this.doc = doc;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
+
     public void setReservedActors(List<Actor> reservedActors) {
         this.reservedActors = reservedActors;
     }

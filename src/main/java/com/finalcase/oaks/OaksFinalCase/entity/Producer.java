@@ -18,7 +18,6 @@ public class Producer extends Profile implements Login {
     private List<Actor> reservedActors = new ArrayList<>();
 
     //construtor
-
     public Producer() {
     }
 

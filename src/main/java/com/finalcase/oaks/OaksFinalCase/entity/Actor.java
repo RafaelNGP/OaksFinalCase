@@ -1,7 +1,6 @@
 package com.finalcase.oaks.OaksFinalCase.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,16 +34,16 @@ public class Actor extends Profile implements Login {
     //construtor
 
     public Actor() {
-    };
-    public Actor(String name, String doc, String email, String password, Double price, int relevance, String genre) {
-        super(name, doc, email, password);
-        this.price = price;
-        this.relevance = relevance;
-        this.genre = genre;
     }
 
-    //getters
+//    public Actor(String name, String doc, String email, String password, Double price, int relevance, String genre) {
+//        super(name, doc, email, password);
+//        this.price = price;
+//        this.relevance = relevance;
+//        this.genre = genre;
+//    }
 
+    //getters
     public Double getPrice() {
         return price;
     }
@@ -65,7 +64,6 @@ public class Actor extends Profile implements Login {
     }
 
     //setters
-
     public void setPrice(Double price) {
         this.price = price;
     }

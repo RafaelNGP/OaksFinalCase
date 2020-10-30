@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity(name = "Actor")
-public class Actor extends Profile implements Login {
+public class Actor extends Profile {
 
     //atributos
     @Id
@@ -81,10 +81,7 @@ public class Actor extends Profile implements Login {
     }
 
     //metodos
-    @Override
-    public boolean checkLogin(String email, String password) {
-        return this.getEmail().equals(email) && this.getPassword().equals(password);
-    }
+
     public List<Date> addAvailableDay (Date date) {
         availableDays.add(date);
         return availableDays;

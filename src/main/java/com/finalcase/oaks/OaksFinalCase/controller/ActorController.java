@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.GeneratedValue;
+import java.net.URI;
 import java.util.Date;
 import java.util.List;
 
@@ -17,18 +17,16 @@ public class ActorController {
     @Autowired
     private ActorService actorService;
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<Actor> saveActor(@RequestBody Actor actor){
         actorService.saveNewActor(actor);
         return ResponseEntity.ok(actor);
     }
 
-    @PostMapping("/edit/{id}")
-    public Actor editOneActorDate(@RequestBody Actor actor,
-                                  @PathVariable (value = "id") Integer id,
-                                  @RequestParam Date date){
-        actor.addAvailableDay(date);
-        return actor;
+    @PostMapping("/saveList")
+    public ResponseEntity<List<Actor>> saveMoreActors(@RequestBody List<Actor> actors){
+        actorService.saveListActors(actors);
+        return ResponseEntity.created(URI.create("/created")).body(actors);
     }
 
     @GetMapping("/all")
@@ -46,14 +44,21 @@ public class ActorController {
         return actorService.listAllByPrice(price);
     }
 
+    @GetMapping("/byRelevance")
+    public List<Actor> findAllByRelevance(@RequestParam int relevance){
+        return actorService.listAllByRelevance(relevance);
+    }
+
+    //TODO: Corrigir Price&Relevance
+    @GetMapping("/byPriceRelevance")
+    public List<Actor> findAllByPriceAndRelevance(@RequestParam double price, @RequestParam int relevance){
+        return actorService.listAllByPriceAndRelevance(price, relevance);
+    }
+
+    //TODO: Corrigir o date
     @GetMapping("/byDate")
     public List<Actor> findAllByAvailableDays(@RequestParam Date availableDays){
         return actorService.listByAvailableDays(availableDays);
-    }
-
-    @GetMapping("/byRelevance")
-    public List<Actor> findAllByRelevance(@RequestParam int relevance){
-        return actorService.listByRelevance(relevance);
     }
 
     @GetMapping("/{id}")

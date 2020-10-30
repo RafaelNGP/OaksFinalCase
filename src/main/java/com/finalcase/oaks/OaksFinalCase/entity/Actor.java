@@ -8,7 +8,7 @@ import java.util.List;
 @Entity(name = "Actor")
 public class Actor extends Profile {
 
-    //atributos
+    //Atributos
     @Id
     @GeneratedValue
     @Column(name = "Id")

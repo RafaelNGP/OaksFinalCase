@@ -67,16 +67,3 @@ public class ActorController {
         return ResponseEntity.accepted().body(actorService.getById(id));
     }
 }
-
-//    Exemplo de JSON para POST
-/*
-{
-    "name": "Rafael",
-    "doc": "30.303.303.3",
-    "email": "rafaelferreira.dev3@gmail.com",
-    "password": "123456",
-    "price": 10,
-    "relevance": 0,
-    "genre": "Terror"
-}
-*/

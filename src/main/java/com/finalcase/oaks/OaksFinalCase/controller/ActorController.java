@@ -66,4 +66,9 @@ public class ActorController {
     public ResponseEntity<Actor> GetActorByID(@PathVariable (value="id")Integer id){
         return ResponseEntity.accepted().body(actorService.getById(id));
     }
+
+    @GetMapping("/byBudgetAndQuantity")
+    public ResponseEntity<List<Actor>> getAllByPrice(@RequestParam double buget, @RequestParam int quatityOfActors){
+        return ResponseEntity.accepted().body(actorService.listAllByBudgetAndQuantityOfActors(buget, quatityOfActors));
+    }
 }

@@ -45,4 +45,11 @@ public class ActorService {
     public Actor getById(Integer id) {
         return actorRepository.findById(id).orElseThrow();
     }
+
+    //Filtro por quantidade de atores e orçamento
+
+    public List<Actor> listAllByBudgetAndQuantityOfActors(double buget, int quantityOfActors) {
+        double maximumPrice = buget/quantityOfActors;
+        return listAllByPrice(maximumPrice);
+    }
 }

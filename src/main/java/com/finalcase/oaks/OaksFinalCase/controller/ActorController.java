@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/actors")
@@ -20,33 +21,33 @@ public class ActorController {
     @PostMapping("/save")
     public ResponseEntity<Actor> saveActor(@RequestBody Actor actor){
         actorService.saveNewActor(actor);
-        return ResponseEntity.ok(actor);
+        return ResponseEntity.created(URI.create(UUID.randomUUID().toString())).body(actor);
     }
 
     @PostMapping("/saveList")
     public ResponseEntity<List<Actor>> saveMoreActors(@RequestBody List<Actor> actors){
         actorService.saveListActors(actors);
-        return ResponseEntity.created(URI.create("/created")).body(actors);
+        return ResponseEntity.created(URI.create(UUID.randomUUID().toString())).body(actors);
     }
 
     @GetMapping("/all")
-    public List<Actor> getAllActors() {
-        return actorService.listAllActors();
+    public ResponseEntity<List<Actor>> getAllActors() {
+        return ResponseEntity.accepted().body(actorService.listAllActors());
     }
 
     @GetMapping("/byGenre")
-    public List<Actor> getAllByGenre(@RequestParam String genre){
-        return actorService.listAllByGenre(genre);
+    public ResponseEntity<List<Actor>> getAllByGenre(@RequestParam String genre){
+        return ResponseEntity.accepted().body(actorService.listAllByGenre(genre));
     }
 
     @GetMapping("/byPrice")
-    public List<Actor> getAllByPrice(@RequestParam double price){
-        return actorService.listAllByPrice(price);
+    public ResponseEntity<List<Actor>> getAllByPrice(@RequestParam double price){
+        return ResponseEntity.accepted().body(actorService.listAllByPrice(price));
     }
 
     @GetMapping("/byRelevance")
-    public List<Actor> findAllByRelevance(@RequestParam int relevance){
-        return actorService.listAllByRelevance(relevance);
+    public ResponseEntity<List<Actor>> findAllByRelevance(@RequestParam int relevance){
+        return ResponseEntity.accepted().body(actorService.listAllByRelevance(relevance));
     }
 
     //TODO: Corrigir Price&Relevance
@@ -62,8 +63,8 @@ public class ActorController {
     }
 
     @GetMapping("/{id}")
-    public Actor GetActorByID(@PathVariable (value="id")Integer id){
-        return actorService.getById(id);
+    public ResponseEntity<Actor> GetActorByID(@PathVariable (value="id")Integer id){
+        return ResponseEntity.accepted().body(actorService.getById(id));
     }
 }
 

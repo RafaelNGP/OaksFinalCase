@@ -9,7 +9,8 @@ import java.util.List;
 public interface ActorRepository extends JpaRepository<Actor, Integer> {
 
     List<Actor> findAllByGenre(String genre);
-    List<Actor> findByAvailableDaysAfter(Date date);
-    List<Actor> findByAvailableDaysBetween(Date date1, Date date2);
+    List<Actor> findAllByAvailableDaysAfter(Date date);
+    List<Actor> findAllByAvailableDaysBetween(Date dateStart, Date dateEnd);
+    List<Actor> findAllByRelevanceGreaterThanEqual(int relevance);
     List<Actor> findByPriceLessThan(double price);
 }

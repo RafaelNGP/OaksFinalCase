@@ -1,5 +1,8 @@
 package com.finalcase.oaks.OaksFinalCase.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,10 +28,13 @@ public class Actor extends Profile {
 
     @ElementCollection
     @Column(name = "AvailableDays")
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private List<Date> availableDays = new ArrayList<>();
 
     @ElementCollection
     @Column(name = "contractedDays")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private List<Date> contractedDays = new ArrayList<>();
 
     //construtor

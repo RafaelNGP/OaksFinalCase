@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.GeneratedValue;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -21,6 +23,14 @@ public class ActorController {
         return ResponseEntity.ok(actor);
     }
 
+    @PostMapping("/edit/{id}")
+    public Actor editOneActorDate(@RequestBody Actor actor,
+                                  @PathVariable (value = "id") Integer id,
+                                  @RequestParam Date date){
+        actor.addAvailableDay(date);
+        return actor;
+    }
+
     @GetMapping("/all")
     public List<Actor> getAllActors() {
         return actorService.listAllActors();
@@ -34,6 +44,16 @@ public class ActorController {
     @GetMapping("/byPrice")
     public List<Actor> getAllByPrice(@RequestParam double price){
         return actorService.listAllByPrice(price);
+    }
+
+    @GetMapping("/byDate")
+    public List<Actor> findAllByAvailableDays(@RequestParam Date availableDays){
+        return actorService.listByAvailableDays(availableDays);
+    }
+
+    @GetMapping("/byRelevance")
+    public List<Actor> findAllByRelevance(@RequestParam int relevance){
+        return actorService.listByRelevance(relevance);
     }
 
     @GetMapping("/{id}")

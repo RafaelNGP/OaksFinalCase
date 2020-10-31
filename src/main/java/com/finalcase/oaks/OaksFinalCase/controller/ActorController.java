@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -79,7 +77,7 @@ public class ActorController {
     //TODO: Corrigir o date
     @GetMapping("/byDate")
     public List<Actor> findAllByAvailableDays(@RequestParam("date") String availableDays) throws ParseException {
-        return actorService.listByAvailableDays(DateUtil.parse(availableDays));
+        return actorService.listByAvailableDays(DateUtil.parseStringToDate(availableDays));
     }
 
     @GetMapping("/{id}")

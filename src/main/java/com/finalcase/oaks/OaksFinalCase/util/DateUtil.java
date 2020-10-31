@@ -10,7 +10,7 @@ public final class DateUtil {
         throw new UnsupportedOperationException("This cant be initialized");
     }
 
-    public static Date parse(final String date) throws ParseException {
+    public static Date parseStringToDate(final String date) throws ParseException {
         return new SimpleDateFormat("yyyy-MM-dd").parse(date);
     }
 }

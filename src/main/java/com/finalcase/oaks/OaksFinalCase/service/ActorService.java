@@ -36,6 +36,12 @@ public class ActorService {
     public List<Actor> listAllByPriceAndRelevance(double price, int relevance){
        return actorRepository.findByPriceLessThanEqualAndRelevanceGreaterThanEqual(price, relevance);
     }
+    public void deleteOneById(Integer id){
+        actorRepository.deleteById(id);
+    }
+    public void deleteAllActors(){
+        actorRepository.deleteAll();
+    }
 
     //TODO: arrumar a lista de datas
     public List<Actor> listByAvailableDays(Date date){

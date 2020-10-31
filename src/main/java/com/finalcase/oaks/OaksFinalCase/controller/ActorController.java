@@ -30,13 +30,13 @@ public class ActorController {
         return ResponseEntity.created(URI.create(UUID.randomUUID().toString())).body(actors);
     }
 
-    @PostMapping("/removeOne/{id}")
+    @DeleteMapping("/removeOne/{id}")
     public ResponseEntity<String> deleteOneActor(@PathVariable(value = "id") Integer id){
         actorService.deleteOneById(id);
         return ResponseEntity.ok().body("Successfully removed actor from Database!");
     }
 
-    @PostMapping("/removeAll")
+    @DeleteMapping("/removeAll")
     public ResponseEntity<String> deleteAllActors(){
         actorService.deleteAllActors();
         return ResponseEntity.ok().body("Successfully removed all actors from Database!");

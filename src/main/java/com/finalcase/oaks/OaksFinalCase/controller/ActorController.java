@@ -74,7 +74,6 @@ public class ActorController {
         return ResponseEntity.accepted().body(actorService.ListAllByName(name));
     }
 
-    //TODO: Date duplicado...? WHY??
     @GetMapping("/byDate")
     public List<Actor> findByAvailableDays(@RequestParam("date") String availableDays) throws ParseException {
         return actorService.listByAvailableDays(DateUtil.parseStringToDate(availableDays));

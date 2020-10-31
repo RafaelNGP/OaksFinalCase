@@ -68,6 +68,11 @@ public class ActorController {
         return ResponseEntity.accepted().body(actorService.listAllByPriceAndRelevance(price, relevance));
     }
 
+    @GetMapping("/byName")
+    public ResponseEntity<List<Actor>> findAllByName(@RequestParam String name){
+        return ResponseEntity.accepted().body(actorService.ListAllByName(name));
+    }
+
     //TODO: Corrigir o date
     @GetMapping("/byDate")
     public List<Actor> findAllByAvailableDays(@RequestParam Date availableDays){

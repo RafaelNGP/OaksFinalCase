@@ -14,4 +14,5 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
     List<Actor> findAllByRelevanceGreaterThanEqual(int relevance);
     List<Actor> findAllByPriceLessThanEqual(double price);
     List<Actor> findByPriceLessThanEqualAndRelevanceGreaterThanEqual(double price, int relevance);
+    List<Actor> findAllByName(String name);
 }

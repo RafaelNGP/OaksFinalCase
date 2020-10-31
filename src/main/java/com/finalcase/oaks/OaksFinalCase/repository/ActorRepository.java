@@ -13,5 +13,5 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
     List<Actor> findAllByAvailableDaysBetween(Date dateStart, Date dateEnd);
     List<Actor> findAllByRelevanceGreaterThanEqual(int relevance);
     List<Actor> findAllByPriceLessThanEqual(double price);
-    List<Actor> findAllByPriceLessThanEqualAndRelevanceGreaterThanEqual(double price, int relevance);
+    List<Actor> findByPriceLessThanEqualAndRelevanceGreaterThanEqual(double price, int relevance);
 }

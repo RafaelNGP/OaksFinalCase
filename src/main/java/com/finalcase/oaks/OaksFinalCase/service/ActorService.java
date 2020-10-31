@@ -34,7 +34,7 @@ public class ActorService {
         return actorRepository.findAllByRelevanceGreaterThanEqual(relevance);
     }
     public List<Actor> listAllByPriceAndRelevance(double price, int relevance){
-       return actorRepository.findAllByPriceLessThanEqualAndRelevanceGreaterThanEqual(price, relevance);
+       return actorRepository.findByPriceLessThanEqualAndRelevanceGreaterThanEqual(price, relevance);
     }
 
     //TODO: arrumar a lista de datas

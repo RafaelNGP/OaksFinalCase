@@ -50,10 +50,10 @@ public class ActorController {
         return ResponseEntity.accepted().body(actorService.listAllByRelevance(relevance));
     }
 
-    //TODO: Corrigir Price&Relevance
     @GetMapping("/byPriceRelevance")
-    public List<Actor> findAllByPriceAndRelevance(@RequestParam double price, @RequestParam int relevance){
-        return actorService.listAllByPriceAndRelevance(price, relevance);
+    public ResponseEntity<List<Actor>> findAllByPriceAndRelevance(@RequestParam(value = "price") double price,
+                                                                  @RequestParam(value = "relevance") int relevance){
+        return ResponseEntity.accepted().body(actorService.listAllByPriceAndRelevance(price, relevance));
     }
 
     //TODO: Corrigir o date

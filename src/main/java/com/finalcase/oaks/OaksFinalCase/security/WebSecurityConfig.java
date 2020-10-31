@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().httpBasic().and().headers().frameOptions().sameOrigin().and().authorizeRequests()
                 .antMatchers().permitAll()
                 .antMatchers("/producer/**").hasAnyRole("PRODUCER", "ADMIN")
-                .antMatchers("/actors/**").hasAnyRole("PRODUCER", "ADMIN")
+                .antMatchers("/actors/**").hasAnyRole("ACTOR", "PRODUCER", "ADMIN")
                 .anyRequest().authenticated()
                 .and().formLogin().permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")

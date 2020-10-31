@@ -74,10 +74,18 @@ public class ActorController {
         return ResponseEntity.accepted().body(actorService.ListAllByName(name));
     }
 
-    //TODO: Corrigir o date
+    //TODO: Date duplicado...? WHY??
     @GetMapping("/byDate")
-    public List<Actor> findAllByAvailableDays(@RequestParam("date") String availableDays) throws ParseException {
+    public List<Actor> findByAvailableDays(@RequestParam("date") String availableDays) throws ParseException {
         return actorService.listByAvailableDays(DateUtil.parseStringToDate(availableDays));
+    }
+
+    @GetMapping("byDates")
+    public List<Actor> findByDatesBetween(@RequestParam("date1") String date1,
+                                          @RequestParam("date2") String date2) throws ParseException {
+    var data1 = DateUtil.parseStringToDate(date1);
+    var data2 = DateUtil.parseStringToDate(date2);
+    return actorService.listByAvailableDaysBetween(data1, data2);
     }
 
     @GetMapping("/{id}")

@@ -46,9 +46,12 @@ public class ActorService {
         actorRepository.deleteAll();
     }
 
-    //TODO: arrumar a lista de datas
     public List<Actor> listByAvailableDays(Date date){
-        return actorRepository.findAllByAvailableDaysAfter(date);
+        return actorRepository.findByAvailableDaysAfter(date);
+    }
+
+    public List<Actor> listByAvailableDaysBetween(Date date1, Date date2){
+        return actorRepository.findByAvailableDaysBetween(date1, date2);
     }
 
     public Actor getById(Integer id) {

@@ -15,17 +15,11 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private ImplementsUserDetailsService userDetailsService;
-
     @Override
     protected void configure(HttpSecurity http) throws java.lang.Exception {
-        http.csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/**").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/actors").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PUT, "/actors").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PATCH, "/actors").hasRole("ADMIN")
+        http.httpBasic().and().authorizeRequests()
+                .antMatchers().permitAll()
+                .antMatchers("/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and().formLogin().permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")
@@ -35,17 +29,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws java.lang.Exception {
 
-        auth.userDetailsService(userDetailsService)
-            .passwordEncoder(new BCryptPasswordEncoder());
-
-        /*auth.inMemoryAuthentication()
+        auth.inMemoryAuthentication()
             .withUser("admin").password("{noop}1234").roles("ADMIN");
-            autenticação em memória (Usuario / Senha / Regra)*/
-    }
-
-    @Override
-    public void configure(WebSecurity web) throws java.lang.Exception {
-        //web.ignoring().antMatchers("");
+            /*autenticação em memória (Usuario / Senha / Regra)*/
     }
 
 }

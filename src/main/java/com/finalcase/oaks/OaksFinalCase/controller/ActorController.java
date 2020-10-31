@@ -80,7 +80,7 @@ public class ActorController {
     }
 
     @GetMapping("/byBudgetAndQuantity")
-    public ResponseEntity<List<Actor>> getAllByPrice(@RequestParam double buget, @RequestParam int quatityOfActors){
-        return ResponseEntity.accepted().body(actorService.listAllByBudgetAndQuantityOfActors(buget, quatityOfActors));
+    public ResponseEntity<List<Actor>> getAllByPrice(@RequestParam double budget, @RequestParam int quantityOfActors){
+        return ResponseEntity.accepted().body(actorService.listAllByBudgetAndQuantityOfActors(budget, quantityOfActors));
     }
 }

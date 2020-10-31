@@ -47,7 +47,7 @@ public class ActorService {
     }
 
     public List<Actor> listByAvailableDays(Date date){
-        return actorRepository.findByAvailableDaysAfter(date);
+        return actorRepository.findByAvailableDaysIs(date);
     }
 
     public List<Actor> listByAvailableDaysBetween(Date date1, Date date2){

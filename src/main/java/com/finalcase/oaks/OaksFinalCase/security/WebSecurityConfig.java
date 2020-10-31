@@ -19,7 +19,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws java.lang.Exception {
         http.csrf().disable().httpBasic().and().authorizeRequests()
                 .antMatchers().permitAll()
-                /*.antMatchers("/**").hasRole("ADMIN")*/
                 .antMatchers("/producer/**").hasAnyRole("PRODUCER", "ADMIN")
                 .antMatchers("/actors/**").hasAnyRole("PRODUCER", "ADMIN")
                 .anyRequest().authenticated()

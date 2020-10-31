@@ -36,6 +36,9 @@ public class ActorService {
     public List<Actor> listAllByPriceAndRelevance(double price, int relevance){
        return actorRepository.findByPriceLessThanEqualAndRelevanceGreaterThanEqual(price, relevance);
     }
+    public List<Actor> ListAllByName(String name){
+        return actorRepository.findAllByName(name);
+    }
     public void deleteOneById(Integer id){
         actorRepository.deleteById(id);
     }

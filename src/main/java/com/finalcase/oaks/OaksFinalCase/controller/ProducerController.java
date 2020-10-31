@@ -18,4 +18,11 @@ public class ProducerController {
         producerService.saveNewProducer(producer);
         return ResponseEntity.ok(producer);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Producer> GetProducerById(@PathVariable (value = "id") Integer id){
+        return ResponseEntity.accepted().body(producerService.getById(id));
+    }
+
+
 }

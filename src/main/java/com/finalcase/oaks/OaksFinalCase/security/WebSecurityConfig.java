@@ -22,22 +22,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 /*.antMatchers("/**").hasRole("ADMIN")*/
                 .antMatchers("/producer/**").hasAnyRole("PRODUCER", "ADMIN")
                 .antMatchers("/actors/**").hasAnyRole("PRODUCER", "ADMIN")
-
-            /*
-                .antMatchers(HttpMethod.POST, "/**").hasRole("ADMIN").and().authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/producer/**").hasRole("PRODUCER")
-                .antMatchers(HttpMethod.POST,"/actors/**").hasRole("ACTOR")
-                .antMatchers(HttpMethod.PUT, "/**").hasRole("ADMIN").and().authorizeRequests()
-                .antMatchers(HttpMethod.PUT,"/producer/**").hasRole("PRODUCER")
-                .antMatchers(HttpMethod.PUT,"/actors/**").hasRole("ACTOR")
-                .antMatchers(HttpMethod.DELETE, "/**").hasRole("ADMIN").and().authorizeRequests()
-                .antMatchers(HttpMethod.DELETE,"/producer/**").hasRole("PRODUCER")
-                .antMatchers(HttpMethod.DELETE,"/actors/**").hasRole("ACTOR")
-                .antMatchers(HttpMethod.PATCH, "/**").hasRole("ADMIN").and().authorizeRequests()
-                .antMatchers(HttpMethod.PATCH,"/producer/**").hasRole("PRODUCER")
-                .antMatchers(HttpMethod.PATCH,"/actors/**").hasRole("ACTOR")
-                */
-
                 .anyRequest().authenticated()
                 .and().formLogin().permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")

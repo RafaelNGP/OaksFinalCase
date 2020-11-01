@@ -96,4 +96,11 @@ public class ActorController {
     public ResponseEntity<List<Actor>> getAllByPrice(@RequestParam double budget, @RequestParam int quantityOfActors){
         return ResponseEntity.accepted().body(actorService.listAllByBudgetAndQuantityOfActors(budget, quantityOfActors));
     }
+
+    @PatchMapping("/{id}/addAvailable")
+    public ResponseEntity<Actor> addAvailDays(@PathVariable("id") Integer id,
+                                                 @RequestParam("availday") String date) throws ParseException {
+        actorService.addAvailableDays(id, DateUtil.parseStringToDate(date));
+        return ResponseEntity.ok().body(actorService.getById(id));
+    }
 }

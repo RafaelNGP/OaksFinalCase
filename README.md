@@ -4,9 +4,8 @@ This API has the functionality to register actors and directors, in order to fil
 
 
 ### Prerequisites
-
-- Java 11 - Available on the Oracle website.
-- [IDE - Of your preference.](https://www.oracle.com/java/technologies/javase-jdk15-downloads.htm)
+- [Java 11](https://www.oracle.com/java/technologies/javase-jdk15-downloads.htm) - Available on the Oracle website.
+- IDE - Of your preference.
 
 ### Installing
 
@@ -15,9 +14,6 @@ This API has the functionality to register actors and directors, in order to fil
 
 ## Tests
 
-## Deployment
-
-exemplo de implemetacao
 
 ## Built With
 

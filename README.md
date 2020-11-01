@@ -5,14 +5,13 @@ This API has the functionality to register actors and directors, in order to fil
 
 ### Prerequisites
 
-- Java 11 - Disponivel no site da Oracle.
-- IDE - De sua preferencia
+- Java 11 - Available on the Oracle website.
+- [IDE - Of your preference.](https://www.oracle.com/java/technologies/javase-jdk15-downloads.htm)
 
 ### Installing
 
 - First, have Java and IDE correctly installed.
-
-- [Git](https://github.com/RafaelNGP/OaksFinalCase)
+- Secondly download the [Git](https://github.com/RafaelNGP/OaksFinalCase) project and open it on ide.
 
 ## Tests
 
@@ -22,10 +21,21 @@ exemplo de implemetacao
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
+* [Java](https://www.java.com/pt-BR/) - The programming language used.
+* [Spring](https://spring.io/) - Tool framework.
+* [H2](https://www.h2database.com/html/main.html) - Database used 
+```
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+```
 
 ## Versioning
 
@@ -43,5 +53,5 @@ exemplo de implemetacao
 
 ## Acknowledgments
 
-[Professor]()
+[Rafael Pazini](https://www.linkedin.com/in/rflpazini/)
 

@@ -29,9 +29,24 @@ public class ActorService {
     public void deleteAllActors(){
         actorRepository.deleteAll();
     }
-    public void addAvailableDays(Integer id, Date date) throws ParseException {
+    public void addAvailableDay(Integer id, Date date){
         Actor actor = actorRepository.findById(id).get();
         actor.addAvailableDay(date);
+        actorRepository.save(actor);
+    }
+    public void removeAvailableDay(Integer id, Date date){
+        Actor actor = actorRepository.findById(id).get();
+        actor.removeAvailableDay(date);
+        actorRepository.save(actor);
+    }
+    public void addContractedDay(Integer id, Date date){
+        Actor actor = actorRepository.findById(id).get();
+        actor.addContractedDays(date);
+        actorRepository.save(actor);
+    }
+    public void removeContractedDay(Integer id, Date date){
+        Actor actor = actorRepository.findById(id).get();
+        actor.removeContractedDay(date);
         actorRepository.save(actor);
     }
     public List<Actor> listAllActors(){

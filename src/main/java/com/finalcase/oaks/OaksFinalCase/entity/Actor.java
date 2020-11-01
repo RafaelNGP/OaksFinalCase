@@ -38,7 +38,6 @@ public class Actor extends Profile {
     private List<Date> contractedDays = new ArrayList<>();
 
     //construtor
-
     public Actor() {
     }
 
@@ -87,17 +86,16 @@ public class Actor extends Profile {
     }
 
     //metodos
-
-    public List<Date> addAvailableDay (Date date) {
+    public void addAvailableDay (Date date) {
         availableDays.add(date);
-        return availableDays;
     }
-    public List<Date> addContractedDays (Date date) {
+    public void addContractedDays (Date date) {
         contractedDays.add(date);
-        return contractedDays;
     }
-    public List<Date> removeAvailableDay (Date date) {
+    public void removeAvailableDay (Date date) {
         availableDays.remove(date);
-        return availableDays;
+    }
+    public void removeContractedDay (Date date){
+        contractedDays.remove(date);
     }
 }

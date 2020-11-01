@@ -99,8 +99,19 @@ public class ActorController {
 
     @PatchMapping("/{id}/addAvailable")
     public ResponseEntity<Actor> addAvailDays(@PathVariable("id") Integer id,
-                                                 @RequestParam("availday") String date) throws ParseException {
-        actorService.addAvailableDays(id, DateUtil.parseStringToDate(date));
+                                                 @RequestParam("availed") String date) throws ParseException {
+        var parseDate = DateUtil.parseStringToDate(date);
+        actorService.addAvailableDay(id, parseDate);
+        actorService.removeContractedDay(id, parseDate);
+        return ResponseEntity.ok().body(actorService.getById(id));
+    }
+
+    @PatchMapping("/{id}/addContracted")
+    public ResponseEntity<Actor> addContDays(@PathVariable("id") Integer id,
+                                              @RequestParam("contracted") String date) throws ParseException {
+        var parseDate = DateUtil.parseStringToDate(date);
+        actorService.addContractedDay(id, parseDate);
+        actorService.removeAvailableDay(id, parseDate);
         return ResponseEntity.ok().body(actorService.getById(id));
     }
 }

@@ -2,10 +2,12 @@ package com.finalcase.oaks.OaksFinalCase.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "Producer")
-public class Producer extends Profile implements Login {
+public class Producer extends Profile {
 
     //atributos
     @Id
@@ -15,7 +17,7 @@ public class Producer extends Profile implements Login {
 
     @ElementCollection
     @Column(name = "reservedActors")
-    private List<Actor> reservedActors = new ArrayList<>();
+    private Set<Actor> reservedActors = new HashSet<>();
 
     //construtor
     public Producer() {
@@ -30,7 +32,7 @@ public class Producer extends Profile implements Login {
         return Id;
     }
 
-    public List<Actor> getReservedActors() {
+    public Set getReservedActors() {
         return reservedActors;
     }
 
@@ -39,17 +41,18 @@ public class Producer extends Profile implements Login {
         Id = id;
     }
 
-    public void setReservedActors(List<Actor> reservedActors) {
+    public void setReservedActors(Set reservedActors) {
         this.reservedActors = reservedActors;
     }
 
     //metodos
-    @Override
-    public boolean checkLogin(String email, String password) {
-        return this.getEmail() == email && this.getPassword() == password;
-    }
-    public List<Actor> addReservedActor(Actor actor) {
+
+    public void addReservedActor(Actor actor) {
         reservedActors.add(actor);
-        return reservedActors;
     }
+
+    public void removeReservedActor(Actor actor) {
+        reservedActors.remove(actor);
+    }
+
 }

@@ -1,10 +1,15 @@
 package com.finalcase.oaks.OaksFinalCase.controller;
 
+import com.finalcase.oaks.OaksFinalCase.entity.Actor;
 import com.finalcase.oaks.OaksFinalCase.entity.Producer;
 import com.finalcase.oaks.OaksFinalCase.service.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
+import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/producer")
@@ -46,4 +51,20 @@ public class ProducerController {
         return ResponseEntity.ok().body("Producer deleted.");
     }
 
+    @PostMapping("/saveList")
+    public ResponseEntity<List<Producer>> saveMoreProducers(@RequestBody List<Producer> producers) {
+        producerService.saveListProducers(producers);
+        return ResponseEntity.created(URI.create(UUID.randomUUID().toString())).body(producers);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Producer>> getAllProducers() {
+        return ResponseEntity.accepted().body(producerService.listAllProducers());
+    }
+
+    @DeleteMapping("/removeAll")
+    public ResponseEntity<String> deleteAllProducers() {
+        producerService.deleteAllProducers();
+        return ResponseEntity.ok().body("Successfully removed all producers from Database!");
+    }
 }

@@ -12,6 +12,11 @@ This API has the functionality to register actors and directors, in order to fil
 - First, have Java and IDE correctly installed.
 - Secondly download the [Git](https://github.com/RafaelNGP/OaksFinalCase) project and open it on ide.
 
+##Swagger
+
+- Make sure the project is running.
+- open in your browser [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
 ## Tests
 
 - Get actor by genre
@@ -75,6 +80,7 @@ This API has the functionality to register actors and directors, in order to fil
 
 * [Java](https://www.java.com/pt-BR/) - The programming language used.
 * [Spring](https://spring.io/) - Tool framework.
+* [Swagger](https://swagger.io/docs/) - Interface description language.
 * [H2](https://www.h2database.com/html/main.html) - Database used 
 ```
 spring:

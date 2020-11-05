@@ -8,6 +8,8 @@ import com.finalcase.oaks.OaksFinalCase.repository.ProducerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class ProducerService {
 
@@ -42,6 +44,18 @@ public class ProducerService {
     public void deleteProducer(Integer id) {
         Producer producer = producerRepository.findById(id).get();
         producerRepository.delete(producer);
+    }
+
+    public void saveListProducers(List<Producer> producers) {
+        producerRepository.saveAll(producers);
+    }
+
+    public List<Producer> listAllProducers() {
+        return producerRepository.findAll();
+    }
+
+    public void deleteAllProducers() {
+        producerRepository.deleteAll();
     }
 
 }

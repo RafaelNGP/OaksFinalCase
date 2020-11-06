@@ -18,7 +18,7 @@ This API has the functionality to register actors and directors, in order to fil
 - Make sure the project is running.
 - open in your browser [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
-![Swagger](https://github.com/RafaelNGP/OaksFinalCase/blob/developer/img/Swagger.png)
+![Swagger](https://github.com/RafaelNGP/OaksFinalCase/blob/main/img/Swagger.png)
 
 ## Built With
 

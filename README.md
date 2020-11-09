@@ -1,6 +1,6 @@
 # API actor control system
 
-This API has the functionality to register actors and directors, in order to filter searches. This filter is able to reduce the results for only the actors with the value, relevance, film genre and the available time required by the director.
+This API has the functionality to register actors and directors, in order to filter searches. This filter is able to reduce the results for only the actors with the value, relevance, genre and the available time required by the director.
 
 
 ### Prerequisites
